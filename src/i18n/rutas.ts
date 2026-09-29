@@ -38,6 +38,12 @@ export type ClaveRuta = keyof typeof RUTAS;
 export const ruta = (clave: ClaveRuta, idioma: Idioma): string => RUTAS[clave][idioma];
 export const otroIdioma = (idioma: Idioma): Idioma => (idioma === 'es' ? 'en' : 'es');
 
+/**
+ * Vista previa (`PUBLIC_VISTA_PREVIA=1`): el sitio se publica en la dirección de Amplify para que Pedro lo revise, sin que
+ * lo indexe nadie (noindex en cada página y robots.txt que no deja entrar). Se quita al apuntar avanzafreight.com.
+ */
+export const VISTA_PREVIA = import.meta.env.PUBLIC_VISTA_PREVIA === '1';
+
 /** Enlaces externos y de conversión (CLAUDE.md § Conversión). Públicos: se incrustan en el HTML al construir. */
 export const URL_APP: string = import.meta.env.PUBLIC_URL_APP || 'https://app.avanzafreight.com';
 /** "Empieza gratis": sin registro público, lleva a pedir acceso en Contacto. */

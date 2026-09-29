@@ -7,7 +7,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import type { Seccion } from '../i18n/comun';
-import { LOCALE, ruta, type ClaveRuta, type Idioma } from '../i18n/rutas';
+import { LOCALE, ruta, VISTA_PREVIA, type ClaveRuta, type Idioma } from '../i18n/rutas';
 
 interface Props {
   idioma: Idioma;
@@ -58,7 +58,7 @@ const grafo = { '@context': 'https://schema.org', '@graph': [organizacion, sitio
     <title>{titulo}</title>
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={canonica} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {(noindex || VISTA_PREVIA) && <meta name="robots" content="noindex, nofollow" />}
     <link rel="alternate" hreflang="es-MX" href={absoluta(ruta(clave, 'es'))} />
     <link rel="alternate" hreflang="en-US" href={absoluta(ruta(clave, 'en'))} />
     <link rel="alternate" hreflang="x-default" href={absoluta(ruta(clave, 'es'))} />
