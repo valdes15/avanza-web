@@ -1,0 +1,9 @@
+---
+import Base from '../../../layouts/Base.astro';
+import SolucionesIndice from '../../../components/SolucionesIndice.astro';
+import { SOLUCIONES } from '../../../i18n/soluciones';
+const t = SOLUCIONES.en.indice;
+---
+<Base idioma="en" clave="soluciones" activo="soluciones" titulo={t.meta.titulo} descripcion={t.meta.descripcion}>
+  <SolucionesIndice idioma="en" />
+</Base>

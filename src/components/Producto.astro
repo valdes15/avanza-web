@@ -1,0 +1,105 @@
+---
+/**
+ * Producto (disenos/Producto.dc.html). La copia es la del diseño, con tres cambios que pide revision-20:
+ * - un solo botón, "Agenda una demo" (§1);
+ * - "Lo que incluye" sin "Gratis, siempre" ni nombres de plan (§6: el precio está por definir): se agrupa por trabajo;
+ * - una sección nueva, "Lo que pasa de verdad" (§3): lo que sabe quien ha estado ahí. Cada frase que dice lo que Avanza
+ *   HACE está verificada en el repo del producto; las que son solo el oficio (la demora sin anotar, el sello) no
+ *   prometen nada.
+ * El inglés es adaptación nuestra: va a revisión de Pedro.
+ */
+import Heroe from './Heroe.astro';
+import Preguntas from './Preguntas.astro';
+import { ruta, type Idioma } from '../i18n/rutas';
+import { PRODUCTO } from '../i18n/producto';
+interface Props {
+  idioma: Idioma;
+}
+const { idioma } = Astro.props;
+const t = PRODUCTO[idioma];
+---
+<Heroe idioma={idioma} etiqueta={t.etiqueta} titulo={t.titulo} bajada={t.bajada}>
+  <div class="bg-marino-2 border-marino-borde flex w-full max-w-[440px] flex-col gap-4 rounded-3xl border p-6" aria-hidden="true">
+    <span class="text-sobre-marino-2 text-[14px] font-semibold">{t.tarjeta.titulo}</span>
+    {t.tarjeta.filas.map(([p, r]) => (
+      <div class="border-marino-borde flex flex-col gap-1 border-t pt-3">
+        <span class="text-sobre-marino-3 text-[13px]">{p}</span>
+        <span class="text-[17px] font-semibold">{r}</span>
+      </div>
+    ))}
+  </div>
+</Heroe>
+
+<section class="bg-fondo">
+  <div class="contenedor flex flex-col gap-10 py-16 lg:py-24">
+    <div class="flex max-w-[860px] flex-col gap-3">
+      <div class="etiqueta text-naranja-texto text-[13px] lg:text-[14px]">{t.recorrido.etiqueta}</div>
+      <h2 class="font-titulo text-marino m-0 text-[30px] leading-[1.15] font-bold lg:text-[44px]">{t.recorrido.titulo}</h2>
+    </div>
+    <ol class="m-0 grid list-none gap-4 p-0 md:grid-cols-2 lg:grid-cols-5">
+      {t.recorrido.fases.map((f, i) => (
+        <li class="border-borde flex flex-col gap-3 rounded-2xl border bg-white p-5">
+          <div class="flex items-center gap-2"><span class="bg-marino flex h-7 w-7 items-center justify-center rounded-full font-mono text-[13px] text-white">{i + 1}</span><span class="font-titulo text-marino text-[18px] font-semibold">{f.fase}</span></div>
+          <div><span class="text-apagado text-[12px] font-bold tracking-[0.1em]">{t.recorrido.tu}</span><p class="text-texto-2 m-0 mt-1 text-[15px] leading-normal">{f.tu}</p></div>
+          <div><span class="text-naranja-texto text-[12px] font-bold tracking-[0.1em]">AVANZA</span><p class="text-marino m-0 mt-1 text-[15px] leading-normal font-medium">{f.avanza}</p></div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="contenedor flex flex-col gap-10 py-16 lg:py-24">
+    <div class="flex max-w-[860px] flex-col gap-3">
+      <div class="etiqueta text-naranja-texto text-[13px] lg:text-[14px]">{t.verdad.etiqueta}</div>
+      <h2 class="font-titulo text-marino m-0 text-[30px] leading-[1.15] font-bold lg:text-[44px]">{t.verdad.titulo}</h2>
+      <p class="text-texto-2 m-0 text-[18px] leading-[1.55]">{t.verdad.bajada}</p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      {t.verdad.casos.map((c) => (
+        <div class="bg-fondo flex flex-col gap-3 rounded-2xl p-6">
+          <p class="font-titulo text-marino m-0 text-[19px] leading-[1.35] font-semibold">{c.pasa}</p>
+          {c.avanza && <p class="text-texto-2 m-0 text-[15px] leading-relaxed"><span class="text-naranja-texto font-semibold">Avanza · </span>{c.avanza}</p>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="bg-fondo">
+  <div class="contenedor flex flex-col gap-10 py-16 lg:py-24">
+    <div class="flex max-w-[860px] flex-col gap-3">
+      <div class="etiqueta text-naranja-texto text-[13px] lg:text-[14px]">{t.incluye.etiqueta}</div>
+      <h2 class="font-titulo text-marino m-0 text-[30px] leading-[1.15] font-bold lg:text-[44px]">{t.incluye.titulo}</h2>
+    </div>
+    <div class="grid gap-4 lg:grid-cols-3 lg:gap-6">
+      {t.incluye.grupos.map((g) => (
+        <div class="border-borde flex flex-col gap-3 rounded-2xl border bg-white p-6 lg:p-7">
+          <h3 class="font-titulo text-marino m-0 text-[22px] font-semibold">{g.nombre}</h3>
+          <p class="text-apagado m-0 text-[15px]">{g.para}</p>
+          <ul class="m-0 flex list-none flex-col gap-2 p-0 text-[15px] leading-snug">
+            {g.si.map((x) => <li class="flex gap-2"><span class="text-exito font-bold" aria-hidden="true">✓</span><span>{x}</span></li>)}
+            {g.pronto.map((x) => <li class="text-apagado flex gap-2"><span aria-hidden="true">○</span><span>{x}</span></li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <a href={ruta('precios', idioma)} class="text-[16px] font-semibold">{t.incluye.precios}</a>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="contenedor flex flex-col gap-10 py-16 lg:py-24">
+    <h2 class="font-titulo text-marino m-0 text-[30px] leading-[1.15] font-bold lg:text-[44px]">{t.real.titulo}</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+      {t.real.puntos.map((p) => (
+        <div class="bg-fondo flex flex-col gap-2 rounded-2xl p-6">
+          <h3 class="font-titulo text-marino m-0 text-[19px] font-semibold">{p.titulo}</h3>
+          <p class="text-texto-2 m-0 text-[15px] leading-relaxed">{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<Preguntas titulo={t.preguntas.titulo} lista={t.preguntas.lista} />

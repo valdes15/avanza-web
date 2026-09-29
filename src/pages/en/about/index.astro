@@ -1,0 +1,9 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Nosotros from '../../../components/Nosotros.astro';
+import { NOSOTROS } from '../../../i18n/nosotros';
+const t = NOSOTROS.en;
+---
+<Base idioma="en" clave="nosotros" activo="nosotros" titulo={t.meta.titulo} descripcion={t.meta.descripcion} bandaPie={false}>
+  <Nosotros idioma="en" />
+</Base>

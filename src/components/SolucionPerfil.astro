@@ -1,0 +1,88 @@
+---
+/**
+ * Una página de Soluciones por perfil, con la estructura de disenos/SolucionBrokers.dc.html: el dolor en una frase →
+ * "Hoy / Con Avanza" → lo que más usa ese perfil → lo que se le apaga (revision-20 §4) → cuánto cuesta (sin número, §6)
+ * → preguntas.
+ */
+import Heroe from './Heroe.astro';
+import Preguntas from './Preguntas.astro';
+import { COMUN } from '../i18n/comun';
+import { urlDemo, type Idioma } from '../i18n/rutas';
+import type { Perfil } from '../i18n/soluciones';
+interface Props {
+  idioma: Idioma;
+  p: Perfil;
+}
+const { idioma, p } = Astro.props;
+const c = COMUN[idioma];
+const TONO = { ok: 'text-[#7FD3A8]', alerta: 'text-naranja', neutro: 'text-sobre-marino-2' } as const;
+---
+<Heroe idioma={idioma} etiqueta={p.etiqueta} titulo={p.titulo} bajada={p.bajada}>
+  <div class="bg-marino-2 border-marino-borde flex w-full max-w-[460px] flex-col gap-3 rounded-3xl border p-6" aria-hidden="true">
+    <span class="text-sobre-marino-2 text-[13px] font-bold tracking-[0.12em]">{p.tarjeta.titulo}</span>
+    {p.tarjeta.filas.map((f) => (
+      <div class="border-marino-borde flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t pt-3">
+        <span class="font-mono text-[14px]">{f.texto}</span>
+        <span class:list={['text-[13px] font-semibold', TONO[f.tono]]}>{f.estado}</span>
+      </div>
+    ))}
+  </div>
+</Heroe>
+
+<section class="bg-white">
+  <div class="contenedor flex flex-col gap-10 py-16 lg:py-24">
+    <h2 class="font-titulo text-marino m-0 max-w-[860px] text-[30px] leading-[1.15] font-bold lg:text-[44px]">{p.hoy.titulo}</h2>
+    <table class="w-full border-collapse text-left">
+      <thead>
+        <tr class="border-marino border-b-2 text-[13px] font-bold tracking-[0.12em] lg:text-[14px]">
+          <th scope="col" class="text-apagado w-1/2 pr-4 pb-3.5 lg:pr-12">{p.hoy.hoy}</th>
+          <th scope="col" class="text-naranja-texto w-1/2 pb-3.5">{p.hoy.con}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {p.hoy.filas.map(([a, b]) => (
+          <tr class="border-borde border-b text-[15px] lg:text-[17px]">
+            <td class="text-apagado py-4 pr-4 align-top lg:py-5 lg:pr-12">{a}</td>
+            <td class="text-marino py-4 align-top font-semibold lg:py-5">{b}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="bg-fondo">
+  <div class="contenedor flex flex-col gap-10 py-16 lg:py-24">
+    <h2 class="font-titulo text-marino m-0 text-[30px] leading-[1.15] font-bold lg:text-[40px]">{p.usa.titulo}</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:gap-6">
+      {p.usa.cosas.map((x) => (
+        <div class="border-borde flex flex-col gap-2 rounded-2xl border bg-white p-6">
+          <h3 class="font-titulo text-marino m-0 text-[20px] font-semibold">{x.titulo}</h3>
+          <p class="text-texto-2 m-0 text-[16px] leading-relaxed">{x.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="contenedor grid gap-8 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
+    <div class="flex flex-col gap-4">
+      <h2 class="font-titulo text-marino m-0 text-[28px] leading-[1.2] font-bold lg:text-[36px]">{p.apaga.titulo}</h2>
+      <p class="text-texto-2 m-0 text-[17px] leading-relaxed">{p.apaga.texto}</p>
+      {p.apaga.lista.length > 0 && (
+        <ul class="m-0 flex list-none flex-col gap-2 p-0 text-[16px]">
+          {p.apaga.lista.map((x) => <li class="text-apagado flex gap-2"><span aria-hidden="true">○</span><span>{x}</span></li>)}
+        </ul>
+      )}
+    </div>
+    <div class="bg-marino flex flex-col gap-4 rounded-[20px] p-6 text-white lg:p-9">
+      <h2 class="font-titulo m-0 text-[24px] leading-[1.25] font-bold lg:text-[28px]">{p.cuesta.titulo}</h2>
+      <p class="text-sobre-marino m-0 text-[17px] leading-relaxed">{p.cuesta.texto}</p>
+      <a href={urlDemo(idioma)} class="boton boton-principal h-14 self-start px-7 text-[17px]">{c.demo}</a>
+      <span class="text-sobre-marino-2 text-[14px]">{c.bandaNota}</span>
+    </div>
+  </div>
+</section>
+
+<Preguntas titulo={p.preguntas.titulo} lista={p.preguntas.lista} />

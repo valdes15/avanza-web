@@ -1,0 +1,74 @@
+---
+/**
+ * Precios SIN número (revision-20 §6; Pedro, 2026-09-29: "precio por definir, y la página se escribe así"). Dice la verdad:
+ * qué incluye, que el precio depende del tamaño de la operación y el botón de la demo. Los dos compromisos que sí se
+ * afirman ya están decididos en el producto (docs/decisions.md de avanza, modelo comercial): nunca por usuario y nunca se
+ * frena una carga por el plan. Lo del §6.1 (cobrar por servicio, sin saldo prepagado) es propuesta: NO se publica.
+ * disenos/Precios.dc.html queda de referencia para cuando haya precios.
+ */
+import Heroe from './Heroe.astro';
+import Preguntas from './Preguntas.astro';
+import { COMUN } from '../i18n/comun';
+import { PRODUCTO } from '../i18n/producto';
+import { ruta, urlDemo, type Idioma } from '../i18n/rutas';
+import { PRECIOS } from '../i18n/precios';
+interface Props {
+  idioma: Idioma;
+}
+const { idioma } = Astro.props;
+const t = PRECIOS[idioma];
+const c = COMUN[idioma];
+const incluye = PRODUCTO[idioma].incluye;
+---
+<Heroe idioma={idioma} etiqueta={t.etiqueta} titulo={t.titulo} bajada={t.bajada} />
+
+<section class="bg-fondo">
+  <div class="contenedor flex flex-col gap-8 py-16 lg:py-24">
+    <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.siempre.titulo}</h2>
+    <div class="grid gap-4 md:grid-cols-2 lg:gap-6">
+      {t.siempre.puntos.map((p) => (
+        <div class="border-borde flex flex-col gap-2 rounded-2xl border bg-white p-6 lg:p-8">
+          <h3 class="font-titulo text-marino m-0 text-[21px] font-semibold">{p.titulo}</h3>
+          <p class="text-texto-2 m-0 text-[16px] leading-relaxed">{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="contenedor flex flex-col gap-8 py-16 lg:py-24">
+    <div class="flex flex-col gap-3">
+      <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.incluye}</h2>
+      <p class="text-texto-2 m-0 text-[17px]">{t.incluyeBajada}</p>
+    </div>
+    <div class="grid gap-4 lg:grid-cols-3 lg:gap-6">
+      {incluye.grupos.map((g) => (
+        <div class="bg-fondo flex flex-col gap-2 rounded-2xl p-6">
+          <h3 class="font-titulo text-marino m-0 text-[20px] font-semibold">{g.nombre}</h3>
+          <p class="text-apagado m-0 text-[15px]">{g.para}</p>
+          <p class="text-texto-2 m-0 text-[15px] leading-relaxed">{g.si.slice(0, 5).join(' · ')}{g.si.length > 5 ? '…' : ''}</p>
+        </div>
+      ))}
+    </div>
+    <a href={ruta('producto', idioma)} class="text-[16px] font-semibold">{t.verProducto}</a>
+  </div>
+</section>
+
+<section class="bg-marino text-white">
+  <div class="contenedor grid gap-8 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
+    <div class="flex flex-col gap-4">
+      <h2 class="font-titulo m-0 text-[28px] leading-[1.2] font-bold lg:text-[36px]">{t.como.titulo}</h2>
+      <p class="text-sobre-marino m-0 text-[17px] leading-relaxed">{t.como.texto}</p>
+    </div>
+    <div class="flex flex-col gap-4">
+      <ul class="m-0 flex list-none flex-col gap-3 p-0 text-[17px]">
+        {t.como.preguntas.map((x) => <li class="border-naranja border-l-4 pl-4">{x}</li>)}
+      </ul>
+      <a href={urlDemo(idioma)} class="boton boton-principal mt-2 h-14 self-start px-7 text-[17px]">{c.demo}</a>
+      <span class="text-sobre-marino-2 text-[14px]">{c.bandaNota}</span>
+    </div>
+  </div>
+</section>
+
+<Preguntas titulo={t.preguntas.titulo} lista={t.preguntas.lista} />

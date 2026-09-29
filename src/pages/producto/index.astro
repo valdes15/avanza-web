@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import Producto from '../../components/Producto.astro';
+import { PRODUCTO } from '../../i18n/producto';
+import { faqJsonLd } from '../../lib/jsonld';
+const t = PRODUCTO.es;
+---
+<Base idioma="es" clave="producto" activo="producto" titulo={t.meta.titulo} descripcion={t.meta.descripcion} jsonld={[faqJsonLd(t.preguntas.lista)]}>
+  <Producto idioma="es" />
+</Base>

@@ -1,0 +1,94 @@
+---
+/**
+ * Nosotros (disenos/Nosotros.dc.html). revision-20 §5: "la escribe Pedro". La copia de aquí es la del diseño, en primera
+ * persona, y va a revisión de Pedro tal cual; sin la tarjeta "Coordinar es gratis, para siempre" (§6: precio por definir).
+ * Los huecos se quedan VISIBLES y se reportan: la foto, las fotos de Tijuana, el correo, el WhatsApp y el horario.
+ */
+import Heroe from './Heroe.astro';
+import { COMUN } from '../i18n/comun';
+import { urlDemo, type Idioma } from '../i18n/rutas';
+import { NOSOTROS } from '../i18n/nosotros';
+interface Props {
+  idioma: Idioma;
+}
+const { idioma } = Astro.props;
+const t = NOSOTROS[idioma];
+const c = COMUN[idioma];
+const hueco = 'bg-suave text-apagado flex items-center justify-center rounded-2xl border-2 border-dashed border-[#C3C9D3] font-mono text-[14px]';
+---
+<Heroe idioma={idioma} etiqueta={t.etiqueta} titulo={t.titulo} bajada={t.bajada} />
+
+<section class="bg-fondo">
+  <div class="contenedor grid gap-10 py-16 lg:grid-cols-[360px_1fr] lg:gap-16 lg:py-24">
+    <div class="flex flex-col gap-3">
+      <div class:list={[hueco, 'aspect-[4/5] w-full max-w-[360px]']}>[FOTO DE PEDRO]</div>
+      <span class="font-titulo text-marino text-[20px] font-semibold">Pedro Valdés</span>
+      <span class="text-apagado text-[15px]">{t.cargo}</span>
+    </div>
+    <div class="flex max-w-[720px] flex-col gap-5">
+      <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.porQue}</h2>
+      {t.parrafos.map((p) => <p class="text-texto-2 m-0 text-[17px] leading-relaxed lg:text-[18px]">{p}</p>)}
+      <blockquote class="border-naranja font-titulo text-marino m-0 border-l-4 pl-5 text-[20px] leading-[1.4] font-semibold lg:text-[22px]">{t.cita}</blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="contenedor flex flex-col gap-8 py-16 lg:py-24">
+    <div class="flex max-w-[860px] flex-col gap-3">
+      <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.prometemos.titulo}</h2>
+      <p class="text-texto-2 m-0 text-[17px]">{t.prometemos.bajada}</p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      {t.prometemos.puntos.map((p) => (
+        <div class="bg-fondo flex flex-col gap-2 rounded-2xl p-6">
+          <h3 class="font-titulo text-marino m-0 text-[20px] font-semibold">{p.titulo}</h3>
+          <p class="text-texto-2 m-0 text-[16px] leading-relaxed">{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="bg-fondo">
+  <div class="contenedor grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
+    <div class="flex flex-col gap-4">
+      <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.frontera.titulo}</h2>
+      <p class="text-texto-2 m-0 text-[17px] leading-relaxed">{t.frontera.texto}</p>
+      <p class="text-marino m-0 text-[17px] leading-relaxed font-semibold">{t.frontera.contesta}</p>
+    </div>
+    <div class:list={[hueco, 'aspect-[16/10] w-full']}>[FOTO: TIJUANA / CRUCE]</div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="contenedor flex flex-col gap-8 py-16 lg:py-24">
+    <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.cuidamos.titulo}</h2>
+    <div class="grid gap-4 md:grid-cols-3 lg:gap-6">
+      {t.cuidamos.puntos.map((p) => (
+        <div class="bg-fondo flex flex-col gap-2 rounded-2xl p-6">
+          <h3 class="font-titulo text-marino m-0 text-[19px] font-semibold">{p.titulo}</h3>
+          <p class="text-texto-2 m-0 text-[16px] leading-relaxed">{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="bg-marino text-white">
+  <div class="contenedor grid gap-10 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
+    <div class="flex flex-col gap-4">
+      <h2 class="font-titulo m-0 text-[28px] font-bold lg:text-[36px]">{t.habla.titulo}</h2>
+      <p class="text-sobre-marino m-0 text-[17px] leading-relaxed">{t.habla.texto}</p>
+      <a href={urlDemo(idioma)} class="boton boton-principal mt-2 h-14 self-start px-7 text-[17px]">{c.demo}</a>
+    </div>
+    <dl class="m-0 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {t.habla.datos.map(([k, v]) => (
+        <div class="flex flex-col gap-1">
+          <dt class="text-sobre-marino-3 text-[13px] font-bold tracking-[0.12em]">{k}</dt>
+          <dd class="m-0 text-[17px]">{v}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

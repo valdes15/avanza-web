@@ -1,0 +1,10 @@
+---
+import Base from '../../../layouts/Base.astro';
+import SolucionPerfil from '../../../components/SolucionPerfil.astro';
+import { SOLUCIONES } from '../../../i18n/soluciones';
+import { faqJsonLd } from '../../../lib/jsonld';
+const p = SOLUCIONES.es.perfiles['soluciones-carrier-broker'];
+---
+<Base idioma="es" clave="soluciones-carrier-broker" activo="soluciones" titulo={p.meta.titulo} descripcion={p.meta.descripcion} jsonld={[faqJsonLd(p.preguntas.lista)]}>
+  <SolucionPerfil idioma="es" p={p} />
+</Base>
