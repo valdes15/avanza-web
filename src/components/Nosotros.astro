@@ -2,11 +2,12 @@
 /**
  * Nosotros (disenos/Nosotros.dc.html). revision-20 §5: "la escribe Pedro". La copia de aquí es la del diseño, en primera
  * persona, y va a revisión de Pedro tal cual; sin la tarjeta "Coordinar es gratis, para siempre" (§6: precio por definir).
- * Sin fotos (revision-22 §5). Huecos que siguen VISIBLES: el correo, el WhatsApp y el horario.
+ * Sin fotos (revision-22 §5). Contacto (revision-23 §3): teléfono con enlace de WhatsApp; sin correo hasta que reciba, sin
+ * horario junto al teléfono.
  */
 import Heroe from './Heroe.astro';
 import { COMUN } from '../i18n/comun';
-import { urlDemo, type Idioma } from '../i18n/rutas';
+import { TELEFONO, urlDemo, WHATSAPP, type Idioma } from '../i18n/rutas';
 import { NOSOTROS } from '../i18n/nosotros';
 interface Props {
   idioma: Idioma;
@@ -27,7 +28,11 @@ const negritas = (s: string) => escapar(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1
       <ul class="m-0 flex list-none flex-col gap-3 p-0">
         {t.tira.map((x) => <li class="font-titulo text-marino border-naranja border-l-4 pl-4 text-[19px] leading-snug font-bold lg:text-[21px]">{x}</li>)}
       </ul>
-      <span class="text-apagado pt-2 text-[15px] font-semibold">{t.nombres}</span>
+      <div class="flex flex-col gap-1 pt-2 text-[15px]">
+        <span class="text-marino font-bold">{t.nombres}</span>
+        <span class="text-apagado">{t.ciudades}</span>
+        <a href={WHATSAPP} class="font-bold">{TELEFONO} <span class="font-normal">(WhatsApp)</span></a>
+      </div>
     </div>
     <div class="flex max-w-[720px] flex-col gap-5">
       <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.porQue}</h2>
@@ -89,7 +94,7 @@ const negritas = (s: string) => escapar(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1
       {t.habla.datos.map(([k, v]) => (
         <div class="flex flex-col gap-1">
           <dt class="text-sobre-marino-3 text-[13px] font-bold tracking-[0.12em]">{k}</dt>
-          <dd class="m-0 text-[17px]">{v}</dd>
+          <dd class="m-0 text-[17px]">{v === 'tel' ? <a href={WHATSAPP} class="text-white underline hover:text-white">{TELEFONO}</a> : v}</dd>
         </div>
       ))}
     </dl>

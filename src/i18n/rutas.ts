@@ -55,5 +55,13 @@ export const URL_APP: string = import.meta.env.PUBLIC_URL_APP || 'https://app.av
  * registro, `PUBLIC_URL_REGISTRO` y un segundo botón; no antes.
  */
 export const urlDemo = (idioma: Idioma): string => ruta('demo', idioma);
+/**
+ * Contacto (revision-23 §3): el teléfono con su enlace de WhatsApp. SIN correo hasta que Pedro confirme que
+ * hola@avanzafreight.com recibe (hoy el dominio no tiene buzón: lo que llegara se perdería sin rebote), y SIN horario
+ * junto al teléfono (el 24/7 es de la plataforma, no de las personas).
+ */
+export const TELEFONO = '+1 619 701 4306';
+export const WHATSAPP = 'https://wa.me/16197014306';
+
 /** El calendario de Pedro (Calendly, 30 minutos): embebido en /demo/, y este enlace de respaldo por si no carga. */
 export const CALENDARIO = 'https://calendly.com/avanzafreight/30min';

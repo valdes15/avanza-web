@@ -7,7 +7,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import type { Seccion } from '../i18n/comun';
-import { LOCALE, ruta, VISTA_PREVIA, type ClaveRuta, type Idioma } from '../i18n/rutas';
+import { LOCALE, ruta, TELEFONO, VISTA_PREVIA, type ClaveRuta, type Idioma } from '../i18n/rutas';
 
 interface Props {
   idioma: Idioma;
@@ -39,6 +39,7 @@ const organizacion = {
     { '@type': 'Country', name: 'United States' },
   ],
   address: { '@type': 'PostalAddress', addressLocality: 'Tijuana', addressRegion: 'B.C.', addressCountry: 'MX' },
+  telephone: TELEFONO,
 };
 const sitioWeb = {
   '@type': 'WebSite',

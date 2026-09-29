@@ -29,3 +29,8 @@
 - revision-22, pegada tal cual: "Mover la carga es la parte fácil" en lugar de "No es el camión" (Inicio, ES y EN); fuera también "La diferencia no es el camión" de "Dos formas" (queda la segunda frase del diseño); Nosotros con "Por qué existe Avanza" de Pedro y Carlos, la tira de datos en lugar de la foto, los nombres debajo y sin la cita en singular. Sin fotos: se quitaron los dos recuadros.
 - Pendiente de Pedro, no se tocó por ser copia aprobada solo en su parte: el encabezado de Nosotros ("Avanza lo hizo alguien que coordinó embarques por más de diez años") sigue en singular y con diez años, y ya no cuadra con "Somos Pedro y Carlos… más de veinticinco años".
 - El sitio se detiene aquí (revision-22 §7).
+
+## 2026-09-29 — revision-23: el sitio se cierra
+- Encabezado de Nosotros (opción A): "Avanza salió de la operación, no de una junta de producto." y su bajada, en ES y EN, con la descripción de la página alineada.
+- Contacto: "Pedro y Carlos Valdés · Tijuana, B.C. · San Diego, CA" y +1 619 701 4306 con enlace de WhatsApp (wa.me), también en el bloque "Habla con nosotros" y en el JSON-LD de la organización. Sin horario (el 24/7 es de la plataforma; no se escribió copia nueva para Producto o Precios). La tira suma "Empresa en México y en Estados Unidos".
+- `hola@avanzafreight.com` NO se publica: el dominio no tiene registros MX (verificado el 2026-09-29). Se agrega cuando Pedro confirme que recibe.

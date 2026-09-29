@@ -16,6 +16,7 @@ export const NOSOTROS: Record<
     /** revision-22 §5: en lugar de la foto, la tira de datos y los nombres. */
     tira: string[];
     nombres: string;
+    ciudades: string;
     porQue: string;
     /** Con **negritas** tal cual las marcó Pedro (revision-22 §3–§4: copia aprobada, para pegar). */
     parrafos: string[];
@@ -29,14 +30,15 @@ export const NOSOTROS: Record<
   es: {
     meta: {
       titulo: 'Nosotros · Avanza',
-      descripcion: 'Avanza lo hizo alguien que coordinó embarques por más de diez años en la frontera Tijuana–San Diego. Esta es la herramienta que nos hubiera gustado tener.',
+      descripcion: 'Avanza salió de la operación, no de una junta de producto: veinticinco años coordinando embarques en el cruce Tijuana–San Diego.',
     },
     etiqueta: 'NOSOTROS',
-    titulo: 'Avanza lo hizo alguien que coordinó embarques por más de diez años.',
-    bajada:
-      'No venimos de vender software. Venimos del teléfono que suena a las nueve de la noche porque falta un documento para cruzar. Esta es la herramienta que nos hubiera gustado tener.',
-    tira: ['+25 años', 'Tijuana–San Diego, México y EUA', 'Ensenada y Long Beach, aéreo y marítimo', 'FTL, LTL y paquetería', 'Unidades propias y transportistas'],
-    nombres: 'Pedro y Carlos Valdés · Tijuana, B.C.',
+    // revision-23 §2 (opción A, elegida por Pedro).
+    titulo: 'Avanza salió de la operación, no de una junta de producto.',
+    bajada: 'Veinticinco años coordinando embarques en el cruce, con las mismas prisas y las mismas llamadas que tú.',
+    tira: ['+25 años', 'Tijuana–San Diego, México y EUA', 'Ensenada y Long Beach, aéreo y marítimo', 'FTL, LTL y paquetería', 'Unidades propias y transportistas', 'Empresa en México y en Estados Unidos'],
+    nombres: 'Pedro y Carlos Valdés',
+    ciudades: 'Tijuana, B.C. · San Diego, CA',
     porQue: 'Por qué existe Avanza',
     parrafos: [
       'Somos Pedro y Carlos Valdés, hermanos. Entre los dos llevamos más de veinticinco años moviendo carga: el cruce Tijuana–San Diego, rutas largas por todo México y Estados Unidos, el puerto de Ensenada y Long Beach, aéreo y marítimo, LTL y paquetería. Hemos despachado y dirigido despachos, con unidades propias y con transportistas, y hemos estado del otro lado del teléfono con brokers y con departamentos de logística.',
@@ -84,24 +86,22 @@ export const NOSOTROS: Record<
       titulo: 'Habla con nosotros',
       texto: '¿Quieres saber si Avanza sirve para tu operación? Cuéntanos cómo coordinas hoy. Si no es para ti, también te lo decimos.',
       datos: [
-        ['CORREO', '[hola@avanzafreight.com]'],
-        ['WHATSAPP', '[POR DEFINIR]'],
-        ['UBICACIÓN', 'Tijuana, Baja California, México'],
-        ['HORARIO', '[POR DEFINIR]'],
+        ['WHATSAPP', 'tel'],
+        ['UBICACIÓN', 'Tijuana, B.C. · San Diego, CA'],
       ],
     },
   },
   en: {
     meta: {
       titulo: 'About · Avanza',
-      descripcion: 'Avanza was built by someone who ran freight for over ten years on the Tijuana–San Diego border. It’s the tool we wish we’d had.',
+      descripcion: 'Avanza came out of running freight, not out of a product meeting: twenty-five years coordinating shipments on the Tijuana–San Diego border.',
     },
     etiqueta: 'ABOUT',
-    titulo: 'Avanza was built by someone who ran freight for over ten years.',
-    bajada:
-      "We don't come from selling software. We come from the phone ringing at 9 PM because a document is missing to cross. This is the tool we wish we'd had.",
-    tira: ['25+ years', 'Tijuana–San Diego, Mexico and the U.S.', 'Ensenada and Long Beach, air and ocean', 'FTL, LTL and parcel', 'Own trucks and outside carriers'],
-    nombres: 'Pedro and Carlos Valdés · Tijuana, B.C.',
+    titulo: 'Avanza came out of running freight, not out of a product meeting.',
+    bajada: 'Twenty-five years coordinating shipments at the border — the same rush and the same phone calls you get.',
+    tira: ['25+ years', 'Tijuana–San Diego, Mexico and the U.S.', 'Ensenada and Long Beach, air and ocean', 'FTL, LTL and parcel', 'Own trucks and outside carriers', 'Entities in Mexico and the U.S.'],
+    nombres: 'Pedro and Carlos Valdés',
+    ciudades: 'Tijuana, B.C. · San Diego, CA',
     porQue: 'Why Avanza exists',
     parrafos: [
       "We're Pedro and Carlos Valdés, brothers. Between us we've spent more than twenty-five years moving freight: the Tijuana–San Diego crossing, long hauls across Mexico and the United States, the ports of Ensenada and Long Beach, air and ocean, LTL and parcel. We've dispatched and run dispatch teams, with our own trucks and with outside carriers, and we've sat on the other end of the phone from brokers and logistics departments.",
@@ -140,10 +140,8 @@ export const NOSOTROS: Record<
       titulo: 'Talk to us',
       texto: "Want to know if Avanza fits your operation? Tell us how you run freight today. If it's not a fit, we'll tell you that too.",
       datos: [
-        ['EMAIL', '[hola@avanzafreight.com]'],
-        ['WHATSAPP', '[TBD]'],
-        ['LOCATION', 'Tijuana, Baja California, Mexico'],
-        ['HOURS', '[TBD]'],
+        ['WHATSAPP', 'tel'],
+        ['LOCATION', 'Tijuana, B.C. · San Diego, CA'],
       ],
     },
   },
