@@ -5,7 +5,7 @@
  */
 import Logo from './Logo.astro';
 import { COMUN } from '../i18n/comun';
-import { ruta, URL_APP, urlDemo, urlEmpezar, type Idioma } from '../i18n/rutas';
+import { ruta, URL_APP, urlDemo, type Idioma } from '../i18n/rutas';
 interface Props {
   idioma: Idioma;
   banda?: boolean;
@@ -17,10 +17,7 @@ const t = COMUN[idioma];
   <section class="bg-marino text-white">
     <div class="contenedor flex flex-col items-center gap-5 py-16 text-center lg:py-20">
       <h2 class="font-titulo m-0 text-[32px] leading-[1.12] font-bold tracking-[-0.02em] lg:text-[44px]">{t.bandaTitulo}</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href={urlEmpezar(idioma)} class="boton boton-principal h-14 px-7 text-[17px]">{t.empezar}</a>
-        <a href={urlDemo(idioma)} class="boton boton-secundario-oscuro h-14 px-7 text-[17px]">{t.demo}</a>
-      </div>
+      <a href={urlDemo(idioma)} class="boton boton-principal h-14 px-7 text-[17px]">{t.demo}</a>
       <span class="text-sobre-marino-2 text-[15px]">{t.bandaNota}</span>
     </div>
   </section>

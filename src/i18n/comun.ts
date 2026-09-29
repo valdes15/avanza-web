@@ -4,6 +4,7 @@
  */
 import type { ClaveRuta, Idioma } from './rutas';
 
+// Recursos sale del menú hasta que haya algo que poner (revision-20 §2).
 export type Seccion = 'producto' | 'soluciones' | 'precios' | 'recursos' | 'nosotros';
 
 type Enlace = { etiqueta: string; clave?: ClaveRuta; app?: true };
@@ -18,7 +19,6 @@ export const COMUN: Record<
     selectorAria: string;
     abrirMenu: string;
     iniciarSesion: string;
-    empezar: string;
     demo: string;
     bandaTitulo: string;
     bandaNota: string;
@@ -34,17 +34,15 @@ export const COMUN: Record<
       { clave: 'producto', etiqueta: 'Producto' },
       { clave: 'soluciones', etiqueta: 'Soluciones' },
       { clave: 'precios', etiqueta: 'Precios' },
-      { clave: 'recursos', etiqueta: 'Recursos' },
       { clave: 'nosotros', etiqueta: 'Nosotros' },
     ],
     selector: 'ES · EN',
     selectorAria: 'English version',
     abrirMenu: 'Abrir el menú',
     iniciarSesion: 'Iniciar sesión',
-    empezar: 'Empieza gratis',
     demo: 'Agenda una demo',
     bandaTitulo: 'Adelántate al embarque.',
-    bandaNota: 'Coordinar embarques es gratis, para siempre · Sin tarjeta',
+    bandaNota: '30 minutos · Te enseñamos con datos como los tuyos',
     pieLema: 'Coordinación proactiva de embarques para México y Estados Unidos.',
     pieDerechos: '© 2026 Avanza Freight TMS · Tijuana, B.C., México',
     columnas: [
@@ -63,23 +61,14 @@ export const COMUN: Record<
           { etiqueta: 'Logística', clave: 'soluciones-logistica' },
           { etiqueta: 'Brokers', clave: 'soluciones-brokers' },
           { etiqueta: 'Transportistas', clave: 'soluciones-transportistas' },
-          { etiqueta: 'Cruce México–EUA', clave: 'soluciones-cruce' },
-        ],
-      },
-      {
-        titulo: 'Recursos',
-        enlaces: [
-          { etiqueta: 'Blog', clave: 'blog' },
-          { etiqueta: 'Guías y plantillas', clave: 'plantillas' },
-          { etiqueta: 'Calculadoras', clave: 'calculadoras' },
-          { etiqueta: 'Glosario', clave: 'glosario' },
+          { etiqueta: 'Transportista y broker', clave: 'soluciones-carrier-broker' },
         ],
       },
       {
         titulo: 'Empresa',
         enlaces: [
           { etiqueta: 'Nosotros', clave: 'nosotros' },
-          { etiqueta: 'Contacto', clave: 'contacto' },
+          { etiqueta: 'Agenda una demo', clave: 'demo' },
           { etiqueta: 'Privacidad', clave: 'privacidad' },
           { etiqueta: 'Términos', clave: 'terminos' },
         ],
@@ -93,18 +82,16 @@ export const COMUN: Record<
       { clave: 'producto', etiqueta: 'Product' },
       { clave: 'soluciones', etiqueta: 'Solutions' },
       { clave: 'precios', etiqueta: 'Pricing' },
-      { clave: 'recursos', etiqueta: 'Resources' },
       { clave: 'nosotros', etiqueta: 'About' },
     ],
     selector: 'EN · ES',
     selectorAria: 'Versión en español',
     abrirMenu: 'Open menu',
     iniciarSesion: 'Log in',
-    empezar: 'Start for free',
     demo: 'Book a demo',
     // Adaptación (HomeEN no trae la banda del pie): a revisión de Pedro.
     bandaTitulo: 'Get ahead of every load.',
-    bandaNota: 'Coordinating loads is free, forever · No credit card',
+    bandaNota: "30 minutes · We'll show you with data like yours",
     pieLema: 'Proactive freight coordination for Mexico and the United States.',
     pieDerechos: '© 2026 Avanza Freight TMS · Tijuana, B.C., Mexico',
     columnas: [
@@ -123,23 +110,14 @@ export const COMUN: Record<
           { etiqueta: 'Shippers', clave: 'soluciones-logistica' },
           { etiqueta: 'Brokers', clave: 'soluciones-brokers' },
           { etiqueta: 'Carriers', clave: 'soluciones-transportistas' },
-          { etiqueta: 'Mexico–US cross-border', clave: 'soluciones-cruce' },
-        ],
-      },
-      {
-        titulo: 'Resources',
-        enlaces: [
-          { etiqueta: 'Blog', clave: 'blog' },
-          { etiqueta: 'Guides and templates', clave: 'plantillas' },
-          { etiqueta: 'Calculators', clave: 'calculadoras' },
-          { etiqueta: 'Glossary', clave: 'glosario' },
+          { etiqueta: 'Carrier-brokers', clave: 'soluciones-carrier-broker' },
         ],
       },
       {
         titulo: 'Company',
         enlaces: [
           { etiqueta: 'About', clave: 'nosotros' },
-          { etiqueta: 'Contact', clave: 'contacto' },
+          { etiqueta: 'Book a demo', clave: 'demo' },
           { etiqueta: 'Privacy', clave: 'privacidad' },
           { etiqueta: 'Terms', clave: 'terminos' },
         ],

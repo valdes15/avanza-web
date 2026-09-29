@@ -34,7 +34,8 @@ try {
   for (const ancho of [390, 1440]) {
     const page = await browser.newPage({ viewport: { width: ancho, height: 900 } });
     let actual = '';
-    page.on('console', (m) => m.type() === 'error' && falla(actual, `error de consola (${ancho}px): ${m.text()}`));
+    // Solo errores de NUESTRO sitio: el calendario de la demo es de Calendly y lo que pase dentro de su iframe no es nuestro.
+    page.on('console', (m) => m.type() === 'error' && (m.location().url ?? '').startsWith(BASE) && falla(actual, `error de consola (${ancho}px): ${m.text()}`));
     page.on('pageerror', (e) => falla(actual, `error de JavaScript (${ancho}px): ${e.message}`));
     page.on('response', (r) => r.status() >= 400 && r.url().startsWith(BASE) && falla(actual, `${r.status()} en ${r.url()}`));
     for (const ruta of rutas) {

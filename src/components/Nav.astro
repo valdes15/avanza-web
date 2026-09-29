@@ -5,7 +5,7 @@
  */
 import Logo from './Logo.astro';
 import { COMUN, type Seccion } from '../i18n/comun';
-import { otroIdioma, ruta, URL_APP, urlEmpezar, type ClaveRuta, type Idioma } from '../i18n/rutas';
+import { otroIdioma, ruta, URL_APP, urlDemo, type ClaveRuta, type Idioma } from '../i18n/rutas';
 interface Props {
   idioma: Idioma;
   /** La página actual (para el selector de idioma, que lleva a su gemela). */
@@ -35,7 +35,7 @@ const gemela = ruta(clave, otroIdioma(idioma));
   <div class="hidden items-center gap-5 text-[15px] lg:flex">
     <a href={gemela} hreflang={otroIdioma(idioma)} class="rounded-md border border-[#3A4659] px-2.5 py-1.5 text-[13px] font-semibold text-[#DDE2EA] no-underline hover:text-white" aria-label={t.selectorAria}>{t.selector}</a>
     <a href={URL_APP} class="font-medium text-white no-underline hover:text-white">{t.iniciarSesion}</a>
-    <a href={urlEmpezar(idioma)} class="boton boton-principal h-11 min-h-0 rounded-lg px-5">{t.empezar}</a>
+    <a href={urlDemo(idioma)} class="boton boton-principal h-11 min-h-0 rounded-lg px-5">{t.demo}</a>
   </div>
 
   <details class="menu-movil ml-auto lg:hidden">
@@ -50,7 +50,7 @@ const gemela = ruta(clave, otroIdioma(idioma));
         <a href={gemela} hreflang={otroIdioma(idioma)} class="rounded-md border border-[#3A4659] px-2.5 py-1.5 text-[13px] font-semibold text-[#DDE2EA] no-underline" aria-label={t.selectorAria}>{t.selector}</a>
         <a href={URL_APP} class="font-medium text-white no-underline">{t.iniciarSesion}</a>
       </div>
-      <a href={urlEmpezar(idioma)} class="boton boton-principal mt-3">{t.empezar}</a>
+      <a href={urlDemo(idioma)} class="boton boton-principal mt-3">{t.demo}</a>
     </div>
   </details>
 </nav>

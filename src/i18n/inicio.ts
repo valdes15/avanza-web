@@ -81,7 +81,7 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     meta: {
       titulo: 'Avanza · Coordinación proactiva de embarques',
       descripcion:
-        'TMS gratis para coordinar embarques en México y Estados Unidos: el mensaje al chofer, los documentos y las citas, listos antes de que pregunten.',
+        'TMS para coordinar embarques en México y Estados Unidos: el mensaje al chofer, los documentos y las citas, listos antes de que pregunten.',
     },
     heroe: {
       categoria: 'COORDINACIÓN PROACTIVA DE EMBARQUES',
@@ -90,7 +90,8 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
         'Avanza prepara cada paso desde que programas el embarque: el mensaje completo al chofer, los documentos, las citas. Las respuestas llegan antes que las preguntas.',
       comoFunciona: 'Ver cómo funciona',
       anclaComoFunciona: 'como-funciona',
-      nota: 'Gratis para empezar · Sin tarjeta · Sin llamada de ventas',
+      // revision-20 §1: no hay alta; lo único que se puede prometer hoy es la demo.
+      nota: '30 minutos · Te enseñamos con datos como los tuyos',
       chat: {
         encabezado: 'Carrier · Despacho',
         sub: 'Embarque programado para las 7:00 AM',
@@ -271,17 +272,14 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     },
     empieza: {
       titulo: 'Empieza con tu próximo embarque.',
-      lineas: ['No necesitas migrar toda tu operación.', 'No necesitas hablar con ventas.', 'No necesitas tarjeta.'],
-      etiqueta: 'COORDINAR EMBARQUES',
-      gratis: 'Gratis. Para siempre.',
-      ilimitados: 'Usuarios ilimitados · Embarques ilimitados',
-      crear: 'Crear mi cuenta',
-      planes: [
-        { nombre: 'Coordina', texto: 'Toda la operación · Gratis' },
-        { nombre: 'Broker', texto: '+ Facturación, cuentas por cobrar y por pagar' },
-        { nombre: 'Carrier', texto: '+ Unidades, GPS y trazabilidad' },
-      ],
-      verPlanes: 'Ver planes →',
+      // Sin "gratis para siempre" ni planes con nombre: el precio está por definir (revision-20 §6).
+      lineas: ['No necesitas migrar toda tu operación.', 'Te enseñamos Avanza con un embarque como los tuyos.'],
+      etiqueta: 'AGENDA UNA DEMO',
+      gratis: '30 minutos.',
+      ilimitados: 'Con tus rutas, tus clientes y tus documentos. Si no es para ti, también te lo decimos.',
+      crear: 'Agenda una demo',
+      planes: [],
+      verPlanes: 'Qué incluye y cómo se cobra →',
     },
     seguridad: {
       etiqueta: 'SEGURIDAD Y PRIVACIDAD',
@@ -331,10 +329,6 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     preguntas: {
       titulo: 'Preguntas frecuentes',
       lista: [
-        {
-          p: '¿De verdad es gratis?',
-          r: 'Sí. Coordinar embarques es gratis para siempre, con usuarios ilimitados y sin tarjeta. Solo pagas si quieres facturación y cobranza, o integrar tus unidades y GPS.',
-        },
         { p: '¿Tengo que migrar toda mi operación?', r: 'No. Empieza con tu próximo embarque y agrega el resto cuando quieras.' },
         { p: '¿Necesito GPS?', r: 'No. Todo hito se puede capturar a mano. Si tienes GPS, es una fuente más de los mismos datos.' },
         { p: '¿Sirve si no cruzo la frontera?', r: 'Sí. Avanza funciona igual para operación solo en México, solo en Estados Unidos o de cruce.' },
@@ -348,16 +342,16 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     cierre: {
       antes: 'Mañana a las 7 hay otro embarque.',
       titulo: 'Adelántate al embarque.',
-      boton: 'Empieza gratis',
-      nota: 'Sin tarjeta. Sin llamada de ventas. Empieza con tu próximo embarque. ·',
-      demo: '¿Prefieres una demo?',
+      boton: 'Agenda una demo',
+      nota: '30 minutos · Te enseñamos con datos como los tuyos.',
+      demo: '',
     },
   },
   en: {
     meta: {
       titulo: 'Avanza · Proactive freight coordination',
       descripcion:
-        'Free TMS to run truckload freight in Mexico and the US: the driver message, the paperwork and the appointments, ready before anyone calls.',
+        'A TMS to run truckload freight in Mexico and the US: the driver message, the paperwork and the appointments, ready before anyone calls.',
     },
     heroe: {
       categoria: 'PROACTIVE FREIGHT COORDINATION',
@@ -366,7 +360,7 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
         'Avanza prepares every step from the moment you schedule the load: the full message to the driver, the paperwork, the appointments. The answers show up before the questions.',
       comoFunciona: 'See how it works',
       anclaComoFunciona: 'how-it-works',
-      nota: 'Free to start · No credit card · No sales call',
+      nota: "30 minutes · We'll show you with data like yours",
       chat: {
         encabezado: 'Carrier · Dispatch',
         sub: 'Pickup scheduled for 7:00 AM',
@@ -543,17 +537,13 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     },
     empieza: {
       titulo: 'Start with your next load.',
-      lineas: ['No need to migrate your whole operation.', 'No need to talk to sales.', 'No credit card.'],
-      etiqueta: 'COORDINATING LOADS',
-      gratis: 'Free. Forever.',
-      ilimitados: 'Unlimited users · Unlimited loads',
-      crear: 'Create my account',
-      planes: [
-        { nombre: 'Coordinate', texto: 'Your whole operation · Free' },
-        { nombre: 'Broker', texto: '+ Invoicing, receivables and payables' },
-        { nombre: 'Carrier', texto: '+ Trucks, GPS and tracking' },
-      ],
-      verPlanes: 'See plans →',
+      lineas: ['No need to migrate your whole operation.', "We'll show you Avanza with a load like yours."],
+      etiqueta: 'BOOK A DEMO',
+      gratis: '30 minutes.',
+      ilimitados: "Your lanes, your customers, your paperwork. If it's not a fit, we'll tell you.",
+      crear: 'Book a demo',
+      planes: [],
+      verPlanes: "What's included and how pricing works →",
     },
     seguridad: {
       etiqueta: 'SECURITY AND PRIVACY',
@@ -599,10 +589,6 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     preguntas: {
       titulo: 'Frequently asked questions',
       lista: [
-        {
-          p: 'Is it really free?',
-          r: 'Yes. Coordinating loads is free forever, with unlimited users and no credit card. You only pay if you want invoicing and collections, or to connect your trucks and GPS.',
-        },
         { p: 'Do I have to move my whole operation over?', r: "No. Start with your next load and bring in the rest when you're ready." },
         { p: 'Do I need GPS?', r: "No. Every milestone can be entered by hand. If you have GPS, it's one more source of the same data." },
         { p: 'Does it work if I never cross the border?', r: 'Yes. Avanza works the same for US-only, Mexico-only or cross-border operations.' },
@@ -613,9 +599,9 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     cierre: {
       antes: "There's another load at 7 tomorrow.",
       titulo: 'Get ahead of every load.',
-      boton: 'Start for free',
-      nota: 'No credit card. No sales call. Start with your next load. ·',
-      demo: 'Rather see a demo?',
+      boton: 'Book a demo',
+      nota: "30 minutes · We'll show you with data like yours.",
+      demo: '',
     },
   },
 };

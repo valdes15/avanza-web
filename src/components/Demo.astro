@@ -1,0 +1,60 @@
+---
+/**
+ * La demo (revision-20 §1): el calendario de Pedro EMBEBIDO (quien llega se queda en Avanza y agenda ahí mismo), con el
+ * enlace directo de respaldo por si el widget no carga o no hay JavaScript. El correo de confirmación lo manda Calendly a
+ * los dos: aquí no se construye nada de correo. El script de Calendly carga solo en esta página.
+ */
+import Heroe from './Heroe.astro';
+import { CALENDARIO, type Idioma } from '../i18n/rutas';
+interface Props {
+  idioma: Idioma;
+}
+const { idioma } = Astro.props;
+const T = {
+  es: {
+    etiqueta: 'AGENDA UNA DEMO',
+    titulo: 'Te enseñamos Avanza con un embarque como los tuyos.',
+    bajada: '30 minutos por videollamada. Escoge el horario aquí mismo; la confirmación te llega por correo.',
+    respaldo: '¿No carga el calendario?',
+    abrir: 'Ábrelo en Calendly →',
+    queVemos: 'Lo que vemos en esos 30 minutos',
+    puntos: [
+      'Un embarque tuyo de principio a fin: de programarlo a subir el POD.',
+      'El mensaje al chofer y la carta de instrucción que confirma el carrier con un enlace.',
+      'Lo que tu operación usaría y lo que se queda apagado.',
+      'Cómo se cobraría en tu caso: el precio depende del tamaño de tu operación.',
+    ],
+  },
+  en: {
+    etiqueta: 'BOOK A DEMO',
+    titulo: "We'll show you Avanza with a load like yours.",
+    bajada: '30 minutes on a video call. Pick a time right here; the confirmation goes to your email.',
+    respaldo: "Calendar not loading?",
+    abrir: 'Open it on Calendly →',
+    queVemos: "What we'll cover in those 30 minutes",
+    puntos: [
+      'One of your loads end to end: from booking it to uploading the POD.',
+      'The driver message and the rate confirmation your carrier confirms with a link.',
+      'What your operation would use, and what stays switched off.',
+      'How pricing would work for you: it depends on the size of your operation.',
+    ],
+  },
+}[idioma];
+---
+<Heroe idioma={idioma} etiqueta={T.etiqueta} titulo={T.titulo} bajada={T.bajada} sinBoton />
+<section class="bg-fondo">
+  <div class="contenedor grid gap-10 py-12 lg:grid-cols-[1fr_2fr] lg:gap-14 lg:py-20">
+    <div class="flex flex-col gap-4">
+      <h2 class="font-titulo text-marino m-0 text-[24px] leading-[1.25] font-bold lg:text-[28px]">{T.queVemos}</h2>
+      <ul class="text-texto-2 m-0 flex list-none flex-col gap-3 p-0 text-[16px] leading-relaxed">
+        {T.puntos.map((p) => <li class="border-naranja border-l-4 pl-4">{p}</li>)}
+      </ul>
+      <p class="text-apagado m-0 pt-2 text-[15px]">{T.respaldo} <a href={CALENDARIO} class="font-semibold">{T.abrir}</a></p>
+    </div>
+    <div class="border-borde overflow-hidden rounded-2xl border bg-white">
+      <div class="calendly-inline-widget" data-url={`${CALENDARIO}?hide_gdpr_banner=1&primary_color=e8702a`} style="min-width:300px;height:720px;"></div>
+      <noscript><p class="p-6"><a href={CALENDARIO}>{T.abrir}</a></p></noscript>
+    </div>
+  </div>
+</section>
+<script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>

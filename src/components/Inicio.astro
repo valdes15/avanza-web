@@ -7,14 +7,14 @@ import Simbolo from './Simbolo.astro';
 import Icono from './Icono.astro';
 import Preguntas from './Preguntas.astro';
 import { INICIO } from '../i18n/inicio';
-import { ruta, urlDemo, urlEmpezar, type Idioma } from '../i18n/rutas';
+import { ruta, urlDemo, type Idioma } from '../i18n/rutas';
 interface Props {
   idioma: Idioma;
 }
 const { idioma } = Astro.props;
 const t = INICIO[idioma];
 const h = t.heroe;
-const empezar = urlEmpezar(idioma);
+const empezar = urlDemo(idioma);
 const burbuja = 'max-w-[300px] px-3.5 py-2.5 text-[15px] leading-[1.4]';
 const hora = 'font-mono ml-1.5 text-[11px] text-sobre-marino-3';
 ---
@@ -303,11 +303,13 @@ const hora = 'font-mono ml-1.5 text-[11px] text-sobre-marino-3';
         <span class="font-titulo text-[32px] leading-[1.1] font-bold lg:text-[40px]">{t.empieza.gratis}</span>
         <span class="text-[17px] leading-normal">{t.empieza.ilimitados}</span>
         <a href={empezar} class="boton bg-marino h-14 text-[17px] text-white hover:text-white">{t.empieza.crear}</a>
-        <div class="border-borde flex flex-col gap-2.5 border-t pt-3 text-[15px] leading-[1.4]">
-          {t.empieza.planes.map((p) => (
-            <div class="flex justify-between gap-4"><span class="font-bold">{p.nombre}</span><span class="text-texto-2 text-right">{p.texto}</span></div>
-          ))}
-        </div>
+        {t.empieza.planes.length > 0 && (
+          <div class="border-borde flex flex-col gap-2.5 border-t pt-3 text-[15px] leading-[1.4]">
+            {t.empieza.planes.map((p) => (
+              <div class="flex justify-between gap-4"><span class="font-bold">{p.nombre}</span><span class="text-texto-2 text-right">{p.texto}</span></div>
+            ))}
+          </div>
+        )}
         <a href={ruta('precios', idioma)} class="text-[15px] font-semibold">{t.empieza.verPlanes}</a>
       </div>
     </div>
@@ -346,6 +348,6 @@ const hora = 'font-mono ml-1.5 text-[11px] text-sobre-marino-3';
     <p class="font-titulo text-sobre-marino m-0 text-[22px] font-semibold lg:text-[30px]">{t.cierre.antes}</p>
     <h2 class="font-titulo m-0 text-[40px] leading-[1.08] font-bold tracking-[-0.02em] lg:text-[64px]">{t.cierre.titulo}</h2>
     <a href={empezar} class="boton boton-principal mt-3 h-[60px] px-8 text-[18px]">{t.cierre.boton}</a>
-    <span class="text-sobre-marino-2 text-[15px]">{t.cierre.nota} <a href={urlDemo(idioma)} class="text-white underline hover:text-white">{t.cierre.demo}</a></span>
+    <span class="text-sobre-marino-2 text-[15px]">{t.cierre.nota}</span>
   </div>
 </section>

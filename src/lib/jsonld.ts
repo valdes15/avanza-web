@@ -7,7 +7,7 @@ export const faqJsonLd = (lista: { p: string; r: string }[]) => ({
   mainEntity: lista.map((q) => ({ '@type': 'Question', name: q.p, acceptedAnswer: { '@type': 'Answer', text: q.r } })),
 });
 
-/** La aplicación. Solo Coordina lleva precio (0): los planes de pago no llevan precio hasta que Pedro lo defina. */
+/** La aplicación. Sin `offers`: el precio está por definir (revision-20 §6), y un precio en JSON-LD es una afirmación. */
 export const aplicacionJsonLd = (idioma: Idioma, descripcion: string) => ({
   '@type': 'SoftwareApplication',
   name: 'Avanza',
@@ -15,5 +15,4 @@ export const aplicacionJsonLd = (idioma: Idioma, descripcion: string) => ({
   operatingSystem: 'Web',
   inLanguage: idioma === 'es' ? 'es-MX' : 'en-US',
   description: descripcion,
-  offers: { '@type': 'Offer', name: idioma === 'es' ? 'Coordina' : 'Coordinate', price: '0', priceCurrency: 'USD' },
 });
