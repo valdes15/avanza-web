@@ -1,0 +1,24 @@
+---
+/**
+ * Preguntas frecuentes: <details>/<summary> y su JSON-LD FAQPage con el MISMO texto visible (CLAUDE.md § Componentes).
+ * La página pasa el JSON-LD al layout con `faqJsonLd(lista)`.
+ */
+interface Props {
+  titulo: string;
+  lista: { p: string; r: string }[];
+}
+const { titulo, lista } = Astro.props;
+---
+<section class="bg-fondo">
+  <div class="contenedor grid gap-8 py-16 lg:grid-cols-[1fr_2fr] lg:gap-[72px] lg:py-28">
+    <h2 class="font-titulo text-marino m-0 text-[30px] leading-[1.2] font-bold lg:text-[40px]">{titulo}</h2>
+    <div class="border-borde flex flex-col border-t">
+      {lista.map((q, i) => (
+        <details class="border-borde border-b py-6" open={i === 0}>
+          <summary class="text-marino text-[18px] font-semibold lg:text-[19px]">{q.p}</summary>
+          <p class="text-texto-2 mt-3 mb-0 text-[16px] leading-relaxed lg:text-[17px]">{q.r}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

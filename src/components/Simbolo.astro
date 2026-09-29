@@ -1,0 +1,30 @@
+---
+/**
+ * El símbolo de Avanza: la A con la flecha naranja que la cruza y sale por la derecha. Geometría fija (marca/Marca.tsx,
+ * CLAUDE.md § Marca): no se retoca a ojo. El hueco alrededor de la flecha es una máscara, así funciona sobre cualquier fondo.
+ */
+interface Props {
+  alto?: number;
+  /** Color de la A: blanca sobre marino, marino sobre claro. */
+  tono?: 'claro' | 'oscuro';
+  clase?: string;
+}
+const { alto = 36, tono = 'claro', clase = '' } = Astro.props;
+// Id de máscara único por instancia (varios logos en una misma página).
+const g = globalThis as unknown as { __avanzaMascara?: number };
+g.__avanzaMascara = (g.__avanzaMascara ?? 0) + 1;
+const mascara = `hueco-${g.__avanzaMascara}`;
+const A = '70,8 122,112 98,112 70,54 42,112 18,112';
+const FLECHA = 'M16 108 C 50 84, 80 70, 117 67';
+const HUECO = 'M16 108 C 50 84, 80 70, 121 67';
+const PUNTA = '113,52 136.1,67 113,82';
+---
+<svg width={Math.round((alto * 142) / 120)} height={alto} viewBox="0 0 142 120" aria-hidden="true" class:list={['shrink-0', clase]}>
+  <mask id={mascara} maskUnits="userSpaceOnUse" x="0" y="0" width="142" height="120">
+    <rect width="142" height="120" fill="#fff"></rect>
+    <path d={HUECO} fill="none" stroke="#000" stroke-width="26" stroke-linecap="round"></path>
+  </mask>
+  <polygon points={A} fill={tono === 'oscuro' ? '#FFFFFF' : 'var(--marino)'} mask={`url(#${mascara})`}></polygon>
+  <path d={FLECHA} fill="none" stroke="var(--naranja)" stroke-width="14" stroke-linecap="round"></path>
+  <polygon points={PUNTA} fill="var(--naranja)"></polygon>
+</svg>

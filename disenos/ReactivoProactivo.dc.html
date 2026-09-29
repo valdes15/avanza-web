@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sección – Reactivo o proactivo</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;family=Sora:wght@600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section style="width: 1440px; height: 1180px; box-sizing: border-box; padding: 112px 96px; display: flex; flex-direction: column; gap: 56px; background: #F5F6F8; color: #171B21; font-family: 'IBM Plex Sans', sans-serif">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 900px">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; color: #B4530F">DOS FORMAS DE COORDINAR EL MISMO EMBARQUE</div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 48px; line-height: 1.12; font-weight: 700; color: #0F1B2D">Hay embarques que fluyen y embarques que te persiguen.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3E4652">La diferencia no es el camión. Es si las respuestas llegaron antes que las preguntas.</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px">
+<div style="padding: 36px; border-radius: 20px; background: #FFFFFF; border: 1px solid #DEE1E7; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="padding: 4px 12px; border-radius: 999px; background: #F8E4E3; color: #9E332F; font-size: 13px; font-weight: 700; letter-spacing: 0.08em">Te buscan</span><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #5D6572">REACTIVO</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 600; color: #5D6572">Mensaje al chofer</span>
+<div style="padding: 16px 18px; border-radius: 12px; background: #F5F6F8; font-size: 16px; line-height: 1.5">Tienes una carga en Planta Otay.</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 600; color: #5D6572">Lo que sigue</span>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.45">
+<span>7:02 · Chofer: ¿Qué caja? ¿A qué hora?</span>
+<span>7:40 · Chofer: ¿Con quién me reporto?</span>
+<span>8:15 · Despachador: el chofer no te localiza.</span>
+<span>8:50 · Jefe de despacho: ¿qué pasa con este viaje?</span>
+<span style="font-weight: 600; color: #9E332F">9:30 · Tu cliente: ¿dónde viene mi carga?</span>
+</div>
+</div>
+<p style="margin: 0; padding-top: 16px; border-top: 1px solid #DEE1E7; font-size: 16px; line-height: 1.55; color: #3E4652">Cada pregunta sin respuesta sube un nivel, y la presión se acumula.</p>
+</div>
+
+<div style="padding: 36px; border-radius: 20px; background: #0F1B2D; color: #FFFFFF; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="padding: 4px 12px; border-radius: 999px; background: #E8702A; color: #0F1B2D; font-size: 13px; font-weight: 700; letter-spacing: 0.08em">Ya estaba resuelto</span><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #AEB6C2">PROACTIVO</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 600; color: #AEB6C2">Mensaje al chofer, armado por Avanza</span>
+<div style="padding: 16px 18px; border-radius: 12px; background: #16243A; border: 1px solid #2A3950; font-size: 16px; line-height: 1.55">Carga en Planta Otay, mañana 7:00 AM. Caja 5321. Repórtate en caseta con el PO 48817 y pregunta por Laura en embarques. Entrega en Almacén San Diego a la 1:00 PM.</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 600; color: #AEB6C2">Lo que sigue</span>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.45">
+<span>El día anterior · Layout de carta porte pedido y complemento listo</span>
+<span>7:02 · El carrier confirma por enlace</span>
+<span>7:05 · Salida registrada; el cliente ya sabe</span>
+<span style="font-weight: 600; color: #E8702A">Nadie tuvo que preguntar.</span>
+</div>
+</div>
+<p style="margin: 0; padding-top: 16px; border-top: 1px solid #2A3950; font-size: 16px; line-height: 1.55; color: #C9D0DB">Las respuestas llegaron antes que las preguntas. Así fluye un embarque.</p>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

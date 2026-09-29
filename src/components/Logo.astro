@@ -1,0 +1,27 @@
+---
+/** Logo completo, horizontal: símbolo + AVANZA + FREIGHT [TMS] (marca/Marca.tsx; el menú de Nav.dc.html usa el tamaño `menu`). */
+import Simbolo from './Simbolo.astro';
+interface Props {
+  tono?: 'claro' | 'oscuro';
+  tamano?: 'menu' | 'pie';
+}
+const { tono = 'oscuro', tamano = 'menu' } = Astro.props;
+const oscuro = tono === 'oscuro';
+---
+{tamano === 'menu' ? (
+  <span class="inline-flex items-center gap-3">
+    <Simbolo alto={36} tono={tono} />
+    <span class="flex flex-col gap-[5px]" aria-hidden="true">
+      <span class="font-marca text-[22px] leading-none font-extrabold [font-stretch:118%]" style={{ color: oscuro ? '#FFFFFF' : 'var(--marino)' }}>AVANZA</span>
+      <span class="font-marca flex items-center gap-[7px] text-[9px] leading-none tracking-[0.3em]">
+        <span class="font-semibold" style={{ color: oscuro ? '#C3C9D3' : 'var(--apagado)' }}>FREIGHT</span>
+        <span class="bg-naranja text-marino rounded-[3px] py-[2px] pr-[3px] pl-[5px] font-extrabold tracking-[0.2em]">TMS</span>
+      </span>
+    </span>
+  </span>
+) : (
+  <span class="inline-flex items-center gap-[10px]">
+    <Simbolo alto={29} tono={tono} />
+    <span class="font-marca text-[18px] font-extrabold text-white [font-stretch:118%]" aria-hidden="true">AVANZA</span>
+  </span>
+)}

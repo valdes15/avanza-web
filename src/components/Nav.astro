@@ -1,0 +1,62 @@
+---
+/**
+ * Menú del sitio (Nav.dc.html). En escritorio, la fila del diseño; en móvil, un menú de hamburguesa hecho con
+ * <details>/<summary>: accesible con teclado y funciona sin JavaScript.
+ */
+import Logo from './Logo.astro';
+import { COMUN, type Seccion } from '../i18n/comun';
+import { otroIdioma, ruta, URL_APP, urlEmpezar, type ClaveRuta, type Idioma } from '../i18n/rutas';
+interface Props {
+  idioma: Idioma;
+  /** La página actual (para el selector de idioma, que lleva a su gemela). */
+  clave: ClaveRuta;
+  activo?: Seccion;
+}
+const { idioma, clave, activo } = Astro.props;
+const t = COMUN[idioma];
+const gemela = ruta(clave, otroIdioma(idioma));
+---
+<nav class="relative flex h-[72px] items-center gap-6 lg:h-[88px] lg:gap-10" aria-label={t.menuAria}>
+  <a href={ruta('inicio', idioma)} class="flex items-center no-underline" aria-label={t.inicioAria}>
+    <Logo tono="oscuro" />
+  </a>
+  <div class="hidden flex-grow justify-center gap-8 text-[15px] font-medium lg:flex">
+    {t.menu.map((m) => (
+      <a
+        href={ruta(m.clave, idioma)}
+        class:list={[
+          'border-b-2 py-1.5 no-underline',
+          m.clave === activo ? 'border-naranja font-bold text-white hover:text-white' : 'border-transparent text-[#DDE2EA] hover:text-white',
+        ]}
+        aria-current={m.clave === activo ? 'page' : undefined}
+      >{m.etiqueta}</a>
+    ))}
+  </div>
+  <div class="hidden items-center gap-5 text-[15px] lg:flex">
+    <a href={gemela} hreflang={otroIdioma(idioma)} class="rounded-md border border-[#3A4659] px-2.5 py-1.5 text-[13px] font-semibold text-[#DDE2EA] no-underline hover:text-white" aria-label={t.selectorAria}>{t.selector}</a>
+    <a href={URL_APP} class="font-medium text-white no-underline hover:text-white">{t.iniciarSesion}</a>
+    <a href={urlEmpezar(idioma)} class="boton boton-principal h-11 min-h-0 rounded-lg px-5">{t.empezar}</a>
+  </div>
+
+  <details class="menu-movil ml-auto lg:hidden">
+    <summary class="flex h-11 w-11 list-none items-center justify-center rounded-lg border border-[#3A4659] text-white" aria-label={t.abrirMenu}>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </summary>
+    <div class="bg-marino border-marino-borde absolute inset-x-[-16px] top-[72px] z-20 flex flex-col gap-1 border-t px-4 pt-2 pb-6">
+      {t.menu.map((m) => (
+        <a href={ruta(m.clave, idioma)} class:list={['py-3 text-[17px] no-underline', m.clave === activo ? 'font-bold text-white' : 'text-[#DDE2EA]']} aria-current={m.clave === activo ? 'page' : undefined}>{m.etiqueta}</a>
+      ))}
+      <div class="border-marino-borde mt-2 flex flex-wrap items-center gap-4 border-t pt-4">
+        <a href={gemela} hreflang={otroIdioma(idioma)} class="rounded-md border border-[#3A4659] px-2.5 py-1.5 text-[13px] font-semibold text-[#DDE2EA] no-underline" aria-label={t.selectorAria}>{t.selector}</a>
+        <a href={URL_APP} class="font-medium text-white no-underline">{t.iniciarSesion}</a>
+      </div>
+      <a href={urlEmpezar(idioma)} class="boton boton-principal mt-3">{t.empezar}</a>
+    </div>
+  </details>
+</nav>
+
+<style>
+  .menu-movil summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

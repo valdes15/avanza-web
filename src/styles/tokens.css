@@ -1,0 +1,27 @@
+/* Tokens de marca (CLAUDE.md § Marca y sistema visual). Los nombres son los del brief; Tailwind los expone en global.css. */
+:root {
+  --marino: #0f1b2d;
+  --marino-2: #16243a; /* tarjetas sobre marino */
+  --marino-borde: #2a3950;
+  --marino-linea: #5b6778; /* borde del botón secundario sobre marino */
+  --pie: #0a1422;
+  --naranja: #e8702a;
+  --naranja-texto: #b4530f;
+  --naranja-hover: #8f410b;
+  --naranja-suave: #fdebdf;
+  --fondo: #f5f6f8;
+  --superficie: #ffffff;
+  --suave: #e3e6ec;
+  --borde: #dee1e7;
+  --texto: #171b21;
+  --texto-2: #3e4652;
+  --apagado: #5d6572;
+  --exito: #17684a;
+  --exito-2: #1f8a5f;
+  --exito-suave: #e2f3ea;
+  --critico: #9e332f;
+  --critico-suave: #f8e4e3;
+  --sobre-marino: #c9d0db;
+  --sobre-marino-2: #aeb6c2;
+  --sobre-marino-3: #9aa4b2;
+}

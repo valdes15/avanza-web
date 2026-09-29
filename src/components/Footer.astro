@@ -1,0 +1,46 @@
+---
+/**
+ * Pie del sitio (Footer.dc.html): la banda "Adelántate al embarque." y las columnas. El inicio trae su propio cierre, así
+ * que ahí va sin banda (`banda={false}`), como en Main.dc.html.
+ */
+import Logo from './Logo.astro';
+import { COMUN } from '../i18n/comun';
+import { ruta, URL_APP, urlDemo, urlEmpezar, type Idioma } from '../i18n/rutas';
+interface Props {
+  idioma: Idioma;
+  banda?: boolean;
+}
+const { idioma, banda = true } = Astro.props;
+const t = COMUN[idioma];
+---
+{banda && (
+  <section class="bg-marino text-white">
+    <div class="contenedor flex flex-col items-center gap-5 py-16 text-center lg:py-20">
+      <h2 class="font-titulo m-0 text-[32px] leading-[1.12] font-bold tracking-[-0.02em] lg:text-[44px]">{t.bandaTitulo}</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={urlEmpezar(idioma)} class="boton boton-principal h-14 px-7 text-[17px]">{t.empezar}</a>
+        <a href={urlDemo(idioma)} class="boton boton-secundario-oscuro h-14 px-7 text-[17px]">{t.demo}</a>
+      </div>
+      <span class="text-sobre-marino-2 text-[15px]">{t.bandaNota}</span>
+    </div>
+  </section>
+)}
+<footer class="bg-pie text-sobre-marino-2 text-[14px]">
+  <div class="contenedor flex flex-col gap-10 py-12 lg:flex-row lg:items-start lg:justify-between">
+    <div class="flex max-w-[320px] flex-col gap-3.5">
+      <Logo tamano="pie" />
+      <span class="leading-normal">{t.pieLema}</span>
+      <span>{t.pieDerechos}</span>
+    </div>
+    <div class="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:flex lg:gap-14">
+      {t.columnas.map((col) => (
+        <div class="flex flex-col gap-2.5">
+          <span class="font-semibold text-white">{col.titulo}</span>
+          {col.enlaces.map((e) => (
+            <a href={e.app ? URL_APP : ruta(e.clave!, idioma)} class="text-sobre-marino-2 no-underline hover:text-white">{e.etiqueta}</a>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</footer>
