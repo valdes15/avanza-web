@@ -56,4 +56,4 @@ export const URL_APP: string = import.meta.env.PUBLIC_URL_APP || 'https://app.av
  */
 export const urlDemo = (idioma: Idioma): string => ruta('demo', idioma);
 /** El calendario de Pedro (Calendly, 30 minutos): embebido en /demo/, y este enlace de respaldo por si no carga. */
-export const CALENDARIO = 'https://calendly.com/pedro-avanzabro/30min';
+export const CALENDARIO = 'https://calendly.com/avanzafreight/30min';

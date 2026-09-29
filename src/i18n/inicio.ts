@@ -113,8 +113,10 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
       },
     },
     dolor: {
-      titulo: 'No es el camión.',
-      subtitulo: 'Es todo lo que tienes que hacer para que el camión llegue.',
+      // revision-22 §2 (copia aprobada por Pedro, tal cual): "No es el camión" sale de todas partes.
+      titulo: 'Mover la carga es la parte fácil.',
+      subtitulo:
+        'Lo difícil es organizar al almacén, al guardia, al chofer, al aduanal y al cliente — y que todo corra en tiempo sin que te la pases persiguiendo a todos.',
       tarjetas: [
         { icono: 'telefono', titulo: 'Tres llamadas sin respuesta', texto: 'El cliente te está preguntando y tú sigues esperando al carrier.' },
         { icono: 'reloj', titulo: 'Una cita que cambió', texto: 'Todos lo sabían. Menos quien tenía que saberlo.' },
@@ -128,7 +130,8 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     dosFormas: {
       etiqueta: 'DOS FORMAS DE COORDINAR EL MISMO EMBARQUE',
       titulo: 'Hay embarques que fluyen y embarques que te persiguen.',
-      bajada: 'La diferencia no es el camión. Es si las respuestas llegaron antes que las preguntas.',
+      // revision-22 §1: fuera toda variante de "no es el camión"; queda la segunda frase del diseño.
+      bajada: 'La diferencia es si las respuestas llegaron antes que las preguntas.',
       reactivo: {
         titulo: 'Te buscan',
         tipo: 'REACTIVO',
@@ -382,8 +385,9 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
       },
     },
     dolor: {
-      titulo: "It's not the truck.",
-      subtitulo: "It's everything you have to remember to get the truck there.",
+      titulo: 'Moving the freight is the easy part.',
+      subtitulo:
+        'The hard part is lining up the warehouse, the gate guard, the driver, the customs broker and the customer — and keeping it all on time without spending your day chasing people.',
       tarjetas: [
         { icono: 'telefono', titulo: 'Three unanswered calls', texto: "Your customer is asking, and you're still waiting on the carrier." },
         { icono: 'reloj', titulo: 'An appointment that moved', texto: 'Everyone knew. Except the one person who needed to.' },
@@ -397,7 +401,7 @@ export const INICIO: Record<Idioma, CopiaInicio> = {
     dosFormas: {
       etiqueta: 'TWO WAYS TO RUN THE SAME LOAD',
       titulo: 'Some loads flow. Others chase you.',
-      bajada: "The difference isn't the truck. It's whether the answers showed up before the questions.",
+      bajada: 'The difference is whether the answers showed up before the questions.',
       reactivo: {
         titulo: 'They chase you',
         tipo: 'REACTIVE',

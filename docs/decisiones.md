@@ -22,3 +22,10 @@
 - **§2:** Recursos sale del menú y del pie.
 - **§5:** Nosotros usa la copia del diseño, en primera persona, a revisión de Pedro; huecos visibles: foto, fotos de Tijuana, correo, WhatsApp, horario.
 - Todo el inglés sin diseño propio (todo menos Inicio) es adaptación nuestra: a revisión.
+
+## 2026-09-29 — revision-21 y revision-22 (copia aprobada por Pedro)
+- Calendly: `https://calendly.com/avanzafreight/30min` (revision-21 §1), verificado (responde y el widget carga) antes de ponerlo.
+- "Rate con" regresa en Brokers (revision-21 §5: se le pregunta a Pedro, no se corrige; ante la duda, la palabra que usan ellos).
+- revision-22, pegada tal cual: "Mover la carga es la parte fácil" en lugar de "No es el camión" (Inicio, ES y EN); fuera también "La diferencia no es el camión" de "Dos formas" (queda la segunda frase del diseño); Nosotros con "Por qué existe Avanza" de Pedro y Carlos, la tira de datos en lugar de la foto, los nombres debajo y sin la cita en singular. Sin fotos: se quitaron los dos recuadros.
+- Pendiente de Pedro, no se tocó por ser copia aprobada solo en su parte: el encabezado de Nosotros ("Avanza lo hizo alguien que coordinó embarques por más de diez años") sigue en singular y con diez años, y ya no cuadra con "Somos Pedro y Carlos… más de veinticinco años".
+- El sitio se detiene aquí (revision-22 §7).

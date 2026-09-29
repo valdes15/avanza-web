@@ -1,4 +1,7 @@
-/** Nosotros: copia de disenos/Nosotros.dc.html (ES, primera persona de Pedro). El inglés es adaptación: a revisión. */
+/**
+ * Nosotros. "Por qué existe Avanza", la tira y los nombres: revision-22 (copia aprobada por Pedro, ES y EN, tal cual;
+ * sin fotos). Lo demás sigue del diseño (disenos/Nosotros.dc.html); su inglés es adaptación.
+ */
 import type { Idioma } from './rutas';
 
 type Punto = { titulo: string; texto: string };
@@ -10,10 +13,13 @@ export const NOSOTROS: Record<
     etiqueta: string;
     titulo: string;
     bajada: string;
-    cargo: string;
+    /** revision-22 §5: en lugar de la foto, la tira de datos y los nombres. */
+    tira: string[];
+    nombres: string;
     porQue: string;
+    /** Con **negritas** tal cual las marcó Pedro (revision-22 §3–§4: copia aprobada, para pegar). */
     parrafos: string[];
-    cita: string;
+    cierre: string;
     prometemos: { titulo: string; bajada: string; puntos: Punto[] };
     frontera: { titulo: string; texto: string; contesta: string };
     cuidamos: { titulo: string; puntos: Punto[] };
@@ -29,14 +35,17 @@ export const NOSOTROS: Record<
     titulo: 'Avanza lo hizo alguien que coordinó embarques por más de diez años.',
     bajada:
       'No venimos de vender software. Venimos del teléfono que suena a las nueve de la noche porque falta un documento para cruzar. Esta es la herramienta que nos hubiera gustado tener.',
-    cargo: 'Fundador de Avanza · Tijuana, B.C.',
+    tira: ['+25 años', 'Tijuana–San Diego, México y EUA', 'Ensenada y Long Beach, aéreo y marítimo', 'FTL, LTL y paquetería', 'Unidades propias y transportistas'],
+    nombres: 'Pedro y Carlos Valdés · Tijuana, B.C.',
     porQue: 'Por qué existe Avanza',
     parrafos: [
-      'Durante más de diez años coordiné embarques en la frontera entre Tijuana y San Diego, y también rutas largas dentro de Estados Unidos con carriers externos. Aprendí que casi nunca falla el camión. Falla la cadena: el chofer que no recibió la caja correcta, el carrier que no confirmó la cita, el documento que nadie pidió a tiempo.',
-      'Casi todo eso se resolvía con hojas de cálculo, WhatsApp y memoria. Así se coordina reactivo: te enteras cuando alguien te pregunta. Yo quería coordinar proactivo: saber qué sigue, quién lo hace y para cuándo, y resolverlo antes de que nadie tenga que preguntar.',
-      'Por eso Avanza gira alrededor de una idea simple: el mejor embarque es el que nadie pregunta por él.',
+      'Somos Pedro y Carlos Valdés, hermanos. Entre los dos llevamos más de veinticinco años moviendo carga: el cruce Tijuana–San Diego, rutas largas por todo México y Estados Unidos, el puerto de Ensenada y Long Beach, aéreo y marítimo, LTL y paquetería. Hemos despachado y dirigido despachos, con unidades propias y con transportistas, y hemos estado del otro lado del teléfono con brokers y con departamentos de logística.',
+      'Y lo que aprendimos es que **mover la carga es la parte fácil. Lo difícil es organizar a la gente.**',
+      'En un solo embarque están el almacén, el guardia de la caseta, el chofer, el owner, el agente aduanal, el departamento de logística del cliente, contabilidad. Cada uno con su horario, su prisa y su forma de avisar. Que todo eso corra en tiempo no pasa solo: **pasa porque alguien se la vive persiguiendo a todos.**',
+      'Y cuando hay una urgencia —y siempre hay una urgencia— esa persecución es bajo presión. **Operar así desgasta.** No por la carga: por la coordinación.',
+      'Por eso Avanza parte el embarque en actividades: quién hace qué, para cuándo, y con el documento o el mensaje ya listo. Para que fluya sin que nadie tenga que perseguir.',
     ],
-    cita: '"Coordiné embarques por más de diez años y me hubiera encantado tener una aplicación como ésta."',
+    cierre: 'El mejor embarque es el que nadie pregunta por él.',
     prometemos: {
       titulo: 'Lo que prometemos, y lo que no hacemos',
       bajada: 'Antes de meter tu operación en una herramienta, tienes derecho a saber cómo piensa quien la hace.',
@@ -91,14 +100,17 @@ export const NOSOTROS: Record<
     titulo: 'Avanza was built by someone who ran freight for over ten years.',
     bajada:
       "We don't come from selling software. We come from the phone ringing at 9 PM because a document is missing to cross. This is the tool we wish we'd had.",
-    cargo: 'Founder of Avanza · Tijuana, B.C.',
+    tira: ['25+ years', 'Tijuana–San Diego, Mexico and the U.S.', 'Ensenada and Long Beach, air and ocean', 'FTL, LTL and parcel', 'Own trucks and outside carriers'],
+    nombres: 'Pedro and Carlos Valdés · Tijuana, B.C.',
     porQue: 'Why Avanza exists',
     parrafos: [
-      "For more than ten years I coordinated freight on the Tijuana–San Diego border, plus long hauls inside the US with outside carriers. I learned the truck almost never fails. The chain does: the driver who didn't get the right trailer, the carrier who didn't confirm the appointment, the document nobody asked for in time.",
-      "Almost all of it ran on spreadsheets, WhatsApp and memory. That's reactive coordination: you find out when someone asks. I wanted to coordinate proactively: know what's next, who owns it and by when, and handle it before anyone has to ask.",
-      'That’s why Avanza is built around one simple idea: the best load is the one nobody calls about.',
+      "We're Pedro and Carlos Valdés, brothers. Between us we've spent more than twenty-five years moving freight: the Tijuana–San Diego crossing, long hauls across Mexico and the United States, the ports of Ensenada and Long Beach, air and ocean, LTL and parcel. We've dispatched and run dispatch teams, with our own trucks and with outside carriers, and we've sat on the other end of the phone from brokers and logistics departments.",
+      'What we learned is that **moving the freight is the easy part. Organizing the people is the hard part.**',
+      "One shipment involves the warehouse, the gate guard, the driver, the owner-operator, the customs broker, the customer's logistics department, accounting. Each with their own hours, their own hurry, their own way of getting word to you. Getting all of that to run on time doesn't just happen: **it happens because somebody spends the day chasing everyone.**",
+      'And when something is urgent — and something is always urgent — that chasing happens under pressure. **Operating that way wears you down.** Not the freight: the coordination.',
+      "That's why Avanza breaks a shipment into activities: who does what, by when, with the document or the message already written. So it flows without anyone having to chase.",
     ],
-    cita: '"I ran freight for more than ten years and I would have loved to have an app like this."',
+    cierre: 'The best load is the one nobody has to ask about.',
     prometemos: {
       titulo: "What we promise, and what we don't do",
       bajada: 'Before you put your operation in a tool, you have a right to know how the people behind it think.',

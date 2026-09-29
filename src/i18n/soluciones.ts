@@ -1,7 +1,7 @@
 /**
  * Soluciones (revision-20 §4): el índice y una página por perfil, cada una con el problema de ESE perfil.
- * - Brokers: disenos/SolucionBrokers.dc.html, sin "gratis" ni planes (§6) y con "rate con" cambiado por "confirmación de
- *   tarifa" (CLAUDE.md del sitio lo pedía confirmar con Pedro: va en el reporte).
+ * - Brokers: disenos/SolucionBrokers.dc.html, sin "gratis" ni planes (§6). "Rate con" se queda como lo dicen en el cruce
+ *   (revision-21 §5: se le pregunta a Pedro, no se corrige; ante la duda, la palabra que usan ellos).
  * - Logística, Transportistas y Transportista y broker: copia NUESTRA con la estructura de Brokers; va a revisión de Pedro.
  * - "Lo que se apaga" sale de los preajustes reales del producto (apps/api/src/negocio/modulos.ts).
  * Toda afirmación sobre lo que Avanza hace está verificada en el repo del producto.
@@ -112,7 +112,7 @@ export const SOLUCIONES: Record<Idioma, { indice: Indice; perfiles: Record<Clave
           hoy: 'HOY',
           con: 'CON AVANZA',
           filas: [
-            ['Mandas la confirmación de tarifa por correo y no sabes si el carrier la leyó.', 'La carta de instrucción sale en PDF y el carrier confirma con un enlace. Queda la hora.'],
+            ['Mandas la rate con por correo y no sabes si el carrier la leyó.', 'La carta de instrucción sale en PDF y el carrier confirma con un enlace. Queda la hora.'],
             ['El cliente te pregunta y tú todavía estás marcándole al carrier.', 'La confirmación sin respuesta se vuelve actividad vencida y se escala antes de que el cliente pregunte.'],
             ['El tender del cliente trae una tarifa distinta a la que pactaron.', 'Avanza compara el tender contra lo pactado y decides concepto por concepto.'],
             ['La factura del carrier llega semanas después y no sabes cuánto ganaste.', 'El costo cuenta desde el mes del embarque; la utilidad se ve sin esperar la factura.'],

@@ -2,7 +2,7 @@
 /**
  * Nosotros (disenos/Nosotros.dc.html). revision-20 §5: "la escribe Pedro". La copia de aquí es la del diseño, en primera
  * persona, y va a revisión de Pedro tal cual; sin la tarjeta "Coordinar es gratis, para siempre" (§6: precio por definir).
- * Los huecos se quedan VISIBLES y se reportan: la foto, las fotos de Tijuana, el correo, el WhatsApp y el horario.
+ * Sin fotos (revision-22 §5). Huecos que siguen VISIBLES: el correo, el WhatsApp y el horario.
  */
 import Heroe from './Heroe.astro';
 import { COMUN } from '../i18n/comun';
@@ -14,21 +14,25 @@ interface Props {
 const { idioma } = Astro.props;
 const t = NOSOTROS[idioma];
 const c = COMUN[idioma];
-const hueco = 'bg-suave text-apagado flex items-center justify-center rounded-2xl border-2 border-dashed border-[#C3C9D3] font-mono text-[14px]';
+/** Las **negritas** de la copia aprobada, como <strong>. El texto es nuestro, pero se escapa igual. */
+const escapar = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const negritas = (s: string) => escapar(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 ---
 <Heroe idioma={idioma} etiqueta={t.etiqueta} titulo={t.titulo} bajada={t.bajada} />
 
 <section class="bg-fondo">
   <div class="contenedor grid gap-10 py-16 lg:grid-cols-[360px_1fr] lg:gap-16 lg:py-24">
-    <div class="flex flex-col gap-3">
-      <div class:list={[hueco, 'aspect-[4/5] w-full max-w-[360px]']}>[FOTO DE PEDRO]</div>
-      <span class="font-titulo text-marino text-[20px] font-semibold">Pedro Valdés</span>
-      <span class="text-apagado text-[15px]">{t.cargo}</span>
+    <!-- revision-22 §5: sin fotos; a un despachador lo convencen las rutas, no una cara. -->
+    <div class="flex flex-col gap-4">
+      <ul class="m-0 flex list-none flex-col gap-3 p-0">
+        {t.tira.map((x) => <li class="font-titulo text-marino border-naranja border-l-4 pl-4 text-[19px] leading-snug font-bold lg:text-[21px]">{x}</li>)}
+      </ul>
+      <span class="text-apagado pt-2 text-[15px] font-semibold">{t.nombres}</span>
     </div>
     <div class="flex max-w-[720px] flex-col gap-5">
       <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.porQue}</h2>
-      {t.parrafos.map((p) => <p class="text-texto-2 m-0 text-[17px] leading-relaxed lg:text-[18px]">{p}</p>)}
-      <blockquote class="border-naranja font-titulo text-marino m-0 border-l-4 pl-5 text-[20px] leading-[1.4] font-semibold lg:text-[22px]">{t.cita}</blockquote>
+      {t.parrafos.map((p) => <p class="text-texto-2 m-0 text-[17px] leading-relaxed lg:text-[18px] [&_strong]:text-marino" set:html={negritas(p)} />)}
+      <blockquote class="border-naranja font-titulo text-marino m-0 border-l-4 pl-5 text-[20px] leading-[1.4] font-bold lg:text-[24px]">{t.cierre}</blockquote>
     </div>
   </div>
 </section>
@@ -51,13 +55,12 @@ const hueco = 'bg-suave text-apagado flex items-center justify-center rounded-2x
 </section>
 
 <section class="bg-fondo">
-  <div class="contenedor grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
-    <div class="flex flex-col gap-4">
+  <div class="contenedor py-16 lg:py-24">
+    <div class="flex max-w-[860px] flex-col gap-4">
       <h2 class="font-titulo text-marino m-0 text-[28px] font-bold lg:text-[36px]">{t.frontera.titulo}</h2>
       <p class="text-texto-2 m-0 text-[17px] leading-relaxed">{t.frontera.texto}</p>
       <p class="text-marino m-0 text-[17px] leading-relaxed font-semibold">{t.frontera.contesta}</p>
     </div>
-    <div class:list={[hueco, 'aspect-[16/10] w-full']}>[FOTO: TIJUANA / CRUCE]</div>
   </div>
 </section>
 
